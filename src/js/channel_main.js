@@ -23,8 +23,18 @@ function getData(callback) {
 function appendData() {
     getData(function(error, data) {
         var Streams = data.streams;
-        
+        ViewCol(Streams);
     });
 }
 
-appendData();
+//建立頻道畫面
+function ViewCol(StreamData) {
+    var row = document.querySelector('.channel_row');
+    
+}
+
+
+var bodyload = document.querySelector('body');
+bodyload.onload = function() {
+    appendData();
+};
