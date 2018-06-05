@@ -1,6 +1,11 @@
+/* comment css */
 *{
   margin: 0;
   padding: 0;
+}
+
+a{
+  text-decoration: none;
 }
 
 body{
@@ -69,4 +74,8 @@ body{
 
 .channel_name{
   margin-bottom: 10px;
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
