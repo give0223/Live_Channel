@@ -16,6 +16,7 @@ function getData(callback) {
     xhr.onreadystatechange = function() {
         if(this.readyState === 4 && this.status === 200) {
             var response = JSON.parse(this.responseText);
+            //將資料放入CallBack function
             callback(null, response);
         }
     };
@@ -23,6 +24,7 @@ function getData(callback) {
 
 //呼叫getData函式取得Twitch資料，再將取得資料放入HTML中
 function appendData() {
+    //呼叫getData執行CallBack function處理資料
     getData(function(error, data) {
         var Streams = data.streams;
         //宣告取得主畫面最外層框架
@@ -31,9 +33,7 @@ function appendData() {
         Streams.forEach(item => {
             var channel_col = ViewCol(item);
             main_row.innerHTML += channel_col;
-        });
-        
-        
+        });               
     });
 }
 
@@ -66,4 +66,11 @@ function ViewCol(StreamData) {
 //Loading
 $(window).ready(function() {
     appendData();
+    $(window).scroll(function () { 
+        var DelayScroll = setTimeout(function() {
+            if($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
+                console.log('ddd');
+            }
+        },500);
+    });
 });
