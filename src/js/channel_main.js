@@ -21,7 +21,6 @@ function getData(GetData_Obj,callback) {
     var xhr = new XMLHttpRequest();
     xhr.open('GET', Url, true);
     xhr.setRequestHeader('Client-ID', client_id);
-    xhr.send();
     xhr.onreadystatechange = function() {
         if(this.readyState === 4 && this.status === 200) {
             var response = JSON.parse(this.responseText);
@@ -29,6 +28,7 @@ function getData(GetData_Obj,callback) {
             callback(null, response);
         }
     };
+    xhr.send();
 }
 
 //呼叫getData函式取得Twitch資料，再將取得資料放入HTML中
@@ -75,6 +75,7 @@ function ViewCol(StreamData) {
             </div>`;   
 }
 
+//節流(延遲)呼叫ajax回傳,使scroll呼叫api的request減少
 function Timefun() {
     DelayScroll = setTimeout(function() {
         if($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
