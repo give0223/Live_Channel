@@ -46,6 +46,7 @@ function appendData(Data_Obj) {
         });               
     });
     Data_Obj._isloading = false;
+    
     Data_Obj.channel_Index = Data_Obj.channel_Index + 10;
     console.log('Data_Obj.channel_Index = ' + Data_Obj.channel_Index);
 }
