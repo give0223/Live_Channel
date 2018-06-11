@@ -13,6 +13,8 @@ var TW_Obj = {
 function changelang(langstr) {
     $('.contain h1').text(window.I18N[langstr].TITLE);
     lange = langstr;
+    //頻道抓取位置初始化
+    TW_Obj.channel_Index = 0;   
     $('.channel_row').empty();
     appendData(lange, TW_Obj);
     
