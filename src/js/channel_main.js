@@ -1,6 +1,10 @@
 //Golable var
 var DelayScroll;
 var lange = 'zh-TW';
+var I18N = {
+    'en': require('./lang_en'),
+    'zh-TW': require('./lang_tw')
+};
 
 //Twitch API物件
 var TW_Obj = {
@@ -11,7 +15,7 @@ var TW_Obj = {
 
 //切換頻道語言
 function changelang(langstr) {
-    $('.contain h1').text(window.I18N[langstr].TITLE);
+    $('.contain h1').text(I18N[langstr].TITLE);
     lange = langstr;
     //頻道抓取位置初始化
     TW_Obj.channel_Index = 0;   
@@ -109,5 +113,12 @@ $(window).ready(function() {
         clearTimeout(DelayScroll);
         //執行下滑讀取延遲函式
         Timefun();
+    });
+
+    $('.zh-TW').click(function () { 
+        changelang('zh-TW');
+    });
+    $('.en').click(function () { 
+        changelang('en');
     });
 });
