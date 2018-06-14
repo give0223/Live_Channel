@@ -5,6 +5,7 @@ var I18N = {
     'en': require('./lang_en'),
     'zh-TW': require('./lang_tw')
 };
+var $ = require('jquery');
 
 //Twitch API物件
 var TW_Obj = {
@@ -15,7 +16,7 @@ var TW_Obj = {
 
 //切換頻道語言
 function changelang(langstr) {
-    $('.contain h1').text(I18N[langstr].TITLE);
+    $('.langs_menu h1').text(I18N[langstr].TITLE);
     lange = langstr;
     //頻道抓取位置初始化
     TW_Obj.channel_Index = 0;   
@@ -63,7 +64,7 @@ function appendData(lange, Data_Obj) {
     Data_Obj._isloading = false;
     
     Data_Obj.channel_Index = Data_Obj.channel_Index + 10;
-    console.log('Data_Obj.channel_Index = ' + Data_Obj.channel_Index);
+    // console.log('Data_Obj.channel_Index = ' + Data_Obj.channel_Index);
 }
 
 //建立頻道畫面
@@ -114,11 +115,11 @@ $(window).ready(function() {
         //執行下滑讀取延遲函式
         Timefun();
     });
-
-    $('.zh-TW').click(function () { 
+    //切換語言動作
+    $('.zh-TW').click(() => { 
         changelang('zh-TW');
     });
-    $('.en').click(function () { 
+    $('.en').click(() => { 
         changelang('en');
     });
 });
