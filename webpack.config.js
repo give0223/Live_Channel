@@ -8,7 +8,7 @@ module.exports = {
     },
     module: {
         rules: [
-            {
+            {//for trun ES6 to ES5
                 test: /\.js$/,
                 exclude: /(node_modules|bower_components)/,
                 use: {
@@ -18,10 +18,9 @@ module.exports = {
                     }
                 }
             },
-            {
-                test: /\.css$/,
-                use: ['style-loader','css-loader']
-            }
         ]            
-    }
+    },
+    plugins: [
+
+    ]
 }
