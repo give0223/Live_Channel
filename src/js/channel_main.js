@@ -104,6 +104,12 @@ function Timefun() {
     },500);
 }
 
+//增加GoTop按鈕
+$('.top_btn').click(function() {
+    $('body,.contain').animate({scrollTop:0},1000);
+    
+});
+
 //Loading
 $(window).ready(function() {
     //建立初始畫面
