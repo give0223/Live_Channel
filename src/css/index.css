@@ -106,7 +106,7 @@ a {
   overflow: hidden;
   text-overflow: ellipsis; }
 
-.top_btn {
+.top {
   position: fixed;
   right: 15px;
   bottom: 50px;

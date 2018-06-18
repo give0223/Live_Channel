@@ -104,11 +104,7 @@ function Timefun() {
     },500);
 }
 
-//增加GoTop按鈕
-$('.top_btn').click(function() {
-    $('body,.contain').animate({scrollTop:0},1000);
-    
-});
+
 
 //Loading
 $(window).ready(function() {
@@ -120,6 +116,12 @@ $(window).ready(function() {
         clearTimeout(DelayScroll);
         //執行下滑讀取延遲函式
         Timefun();
+        //
+        if($(window).scrollTop() > 400){
+            $('.top').show();
+        }else{
+            $('.top').hide();
+        }
     });
     //切換語言動作
     $('.zh-TW').click(() => { 
@@ -127,5 +129,9 @@ $(window).ready(function() {
     });
     $('.en').click(() => { 
         changelang('en');
+    });
+    //增加GoTop按鈕
+    $('.top').click(function() {
+        $("html,body").animate({scrollTop:top},2000);  
     });
 });
